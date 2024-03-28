@@ -1,0 +1,49 @@
+/* COLOUR PALETTE
+OPTION 1
+001B7E = navy
+0b4af9 = royal blue
+02cefc = baby blue
+3d103c = maroon
+690759 = mauve
+ed006c = fushia
+
+OPTION 2
+012932 = black/green
+016e78 = seagreen
+02abb7 = teal
+00f3d7 = tiffany green
+9b425b = dusty pink
+fb02af = fushia
+ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #016e78;
+}
+
+#gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.square {
+    background-color: #012932;
+    border: 1px solid #02abb7;
+    height: 60px;
+    width: 60px;
+}
+
+/* .square:hover {
+    background-color: #fb02af;
+} */
