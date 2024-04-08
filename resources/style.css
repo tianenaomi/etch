@@ -18,6 +18,7 @@ fb02af = fushia
 
 html {
     box-sizing: border-box;
+    height: 90vh;
 }
 
 *,
@@ -33,6 +34,7 @@ body {
 #gridContainer {
     display: flex;
     flex-wrap: wrap;
+    aspect-ratio: 1/1;
     width: 960px;
     margin: 0 auto;
 }
@@ -40,8 +42,10 @@ body {
 .square {
     background-color: #012932;
     border: 1px solid #02abb7;
-    height: 60px;
     width: 60px;
+    height: 60px;
+    flex: auto;
+    aspect-ratio: 1/1;
 }
 
 
