@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-Sketch</title>
-    <link rel="stylesheet" href="resources/style.css">
-</head>
-<body>
-    <button id="clear">clear</button>
-    <button id="newGrid">new grid</button>
-    <div id="gridContainer">
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Etch-a-Sketch</title>
+        <link rel="stylesheet" href="resources/style.css">
+    </head>
+    <body>
+        <button id="clear">clear</button>
+        <button id="newGrid">new grid</button>
+        <div id="gridContainer">
+        </div>
 
-    <div class="popUp">
-        <form class="innerPopUp" id="innerPopUp">
-            <label id="prompt">how many boxes per side</label>
-            <div id="error"></div>
-            <input type="text" name="input" id="input" min="2" max="100" value="">
-            <button id="submit">grid me</button>
-        </form>
-    </div>
-    <script src="resources/script.js"> 
-    </script>
-</body>
+        <div class="popUp">
+            <form class="innerPopUp" id="innerPopUp">
+                <label for="input" id="prompt">how many boxes per side</label>
+                <div id="error"></div>
+                <input type="text" name="input" id="input" min="16" max="100" value="">
+                <button id="submit">grid me</button>
+            </form>
+        </div>
+        <script src="resources/script.js"> 
+        </script>
+    </body>
 </html>

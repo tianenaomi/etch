@@ -4,30 +4,28 @@ const openPopUp = document.getElementById('newGrid');
 const popUp = document.querySelector('.popUp');
 const closePopUp = document.getElementById('submit');
 const error = document.getElementById('error');
-const squares = [];
+let sideSquares = document.getElementById('input');
 let input = document.getElementById('input');
-input = "16";
-input = +input;
+sideSquares = 16;
+let squares = [];
+let grid;
 
-createGrid();
+createGrid(sideSquares);
 
-function createGrid (){
-    input = (input *= input) - 1;
-    for (i = 0; i <= input; i++){
+function createGrid (sideSquares){
+    squares = [];
+    grid = (sideSquares *= sideSquares) - 1;
+    for (let i = 0; i <= grid; i++){
         squares[i] = document.createElement('div');
         gridContainer.appendChild(squares[i]);
     }
-}
-
-squares.forEach((square) => {
-    square.classList.add('square');
-});
-
-squares.forEach((square) => {
-    square.addEventListener('mouseenter', () => {
-        square.setAttribute("style", "background-color: #fb02af;");
+    squares.forEach((square) => {
+        square.classList.add('square');
+        square.addEventListener('mouseenter', () => {
+            square.setAttribute("style", "background-color: #fb02af;");
+        });
     });
-});
+}
 
 clear.addEventListener('click', () => {
     squares.forEach((square) => {
@@ -39,29 +37,25 @@ openPopUp.addEventListener('click', () => {
     popUp.classList.add('open');
 });
 
-function createCustomGrid (input){
-    input = (input *= input) - 1;
-    for (i = 0; i <= input; i++){
-        squares[i] = document.createElement('div');
-        gridContainer.appendChild(squares[i]);
-    }
-}
+closePopUp.addEventListener('click', function(e) {
+    e.preventDefault(); //prevents browser from returning to line 1 and re-executing code
+    let newValue = input.value;
+    sideSquares = +newValue;
+    for (let i = 0; i < squares.length; i++){
+        squares[i].remove();
+    };
+
+    createGrid(sideSquares);
+    popUp.classList.remove('open');
+});
+
+
 
 /* PSEUDOCODE
 
 Problems to solve - 
 1. retrieving input value
 2. evenly wrapping x input into specified container, i.e. width / height of 960px
-
-
-function createGrid (input = "15"){
-    input = +input;
-    input *= input;
-    for (i = 0; i <= input; i++){
-        squares[i] = document.createElement('div');
-        gridContainer.appendChild(squares[i]);
-    }
-}
 
 ADD event listener on click on closePopUp
     IF input is greater than 100 or less than 10 THEN
@@ -77,43 +71,11 @@ END event listner
 */
 
 // TEST
-for (i = 0; i <= input; i++){
+for (i = 0; i <= grid; i++){ //needs reworking now variable names changed
     squares[i].textContent = i;
 }
 // END test
 
-closePopUp.addEventListener('click', () => { //set new grid
-    let input = document.getElementById('input');
-    input = input.value;
-    input = +input;
-    for (i = 0; i <= 255; i++){
-        squares[i].remove();
-    };
-    createCustomGrid(input);
-    popUp.classList.remove('open');
-});
-
-/*
-ATTEMPT 1 - 
-
-// closePopUp.addEventListener('click', () => { //set new grid
-//     +value;
-//     if (value > 100 || value < 10){
-//         error.textContent = "must be between 10 and 100";
-//         input.focus();
-//     } else {
-//         for (i = 0; i <= 255; i++){
-//             squares[i].remove();
-//         };
-//         createCustomGrid(value);
-//         popUp.classList.remove('open');
-//     }
-// });
-
-
-
-
-*/
 
 
 
