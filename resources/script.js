@@ -17,19 +17,32 @@ function createGrid (sideSquares){
     grid = (sideSquares *= sideSquares) - 1;
     for (let i = 0; i <= grid; i++){
         squares[i] = document.createElement('div');
+        squares[i].classList.add('square');
+        gridContainer.appendChild(squares[i]);
+        squares[i].addEventListener('mouseenter', () => {
+            squares[i].style.backgroundColor = "#fb02af";
+        });
+    };
+}
+
+function createGrid (sideSquares){
+    squares = [];
+    grid = (sideSquares *= sideSquares) - 1;
+    for (let i = 0; i <= grid; i++){
+        squares[i] = document.createElement('div');
+        squares[i].classList.add('square');
         gridContainer.appendChild(squares[i]);
     }
     squares.forEach((square) => {
-        square.classList.add('square');
         square.addEventListener('mouseenter', () => {
-            square.setAttribute("style", "background-color: #fb02af;");
+            square.style.backgroundColor = "#fb02af";
         });
     });
 }
 
 clear.addEventListener('click', () => {
     squares.forEach((square) => {
-        square.setAttribute("style", "background-color: #012932;");
+        square.style.backgroundColor = "#012932";
     });
 });
 
@@ -44,38 +57,29 @@ closePopUp.addEventListener('click', function(e) {
     for (let i = 0; i < squares.length; i++){
         squares[i].remove();
     };
-
     createGrid(sideSquares);
+    setSquareSize(newValue);
     popUp.classList.remove('open');
 });
 
+function setSquareSize (newValue){
+    let size = (768 / newValue);
+    squares.forEach((square) => {
+        square.style.width = `${size}px`;
+        square.style.height = `${size}px`;
+    });
+}
 
 
-/* PSEUDOCODE
-
-Problems to solve - 
-1. retrieving input value
-2. evenly wrapping x input into specified container, i.e. width / height of 960px
-
-ADD event listener on click on closePopUp
-    IF input is greater than 100 or less than 10 THEN
-        ADD error message
-        TRY input again (how to code this bit)
-    ELSE 
-        REMOVE current grid
-        ADD new grid using input
-        REMOVE class of open
-    END if then else
-END event listner
+/* PSEUDOCODE - how to resize gridContainer to fit window?
 
 */
 
 // TEST
-for (i = 0; i <= grid; i++){ //needs reworking now variable names changed
-    squares[i].textContent = i;
-}
+// for (i = 0; i <= grid; i++){ //needs reworking now variable names changed
+//     squares[i].textContent = i;
+// }
 // END test
-
 
 
 
