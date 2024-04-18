@@ -73,6 +73,7 @@ button {
     border-radius: 4px;
     width: 792px;
     margin: 0 auto;
+    background-color: #016e78;
 }
 
 #gridContainer {
@@ -121,14 +122,13 @@ button {
     height: 200px;
     width: 260px;
     /* border-radius: 140px; */
-    background-color:#9b425b;
-    border: 5px outset #fb02af;
+    background-color: #016e78;
+    border: 5px outset #00f3d7;
     border-radius: 4px;
 }
 
 label,
 input {
-    color: #012932;
     font-size: 24px;
     font-weight: 500;
 }
@@ -137,11 +137,20 @@ input {
     width: 96px;
     height: 48px;
     border-radius: 4px;
-    background-color: #00f3d755;
-    border-color: #fb02af;
+    background-color: #01293299;
+    border-color: #00f3d7;
     text-align: center;
+    color: #fb02af;
 }
 
-#submit {
-    /* font-size: 18px; */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
+
+input:focus {
+    outline-color: #fb02af;
+}
+
+ 

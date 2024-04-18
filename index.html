@@ -13,6 +13,7 @@
         <div class="buttonContainer">
             <button id="clear">clear etch</button>
             <button id="newGrid">custom grid</button>
+            <button id="newColor">custom colour</button>
         </div> 
         <div id="gridBorder">
             <div id="gridContainer"></div>
@@ -21,12 +22,31 @@
             <div id="toCenter"></div>
         </div>
 
-        <div class="popUp">
+        <div class="popUp" id="gridPopUp">
             <form class="innerPopUp" id="innerPopUp">
-                <label for="input" id="prompt">how many boxes per side</label>
-                <div id="error"></div>
-                <input type="text" name="input" id="input" min="16" max="208" value="">
-                <button id="submit">grid me</button>
+                <label for="input" id="prompt">how many boxes per side?</label>
+                <input type="number" name="input" id="input" min="16" max="208" value="">
+                <button id="submit">let's go</button>
+            </form>
+        </div>
+
+        <div class ="popUp" id="colorPopUp">
+            <form class="innerPopUp">
+                <label for="form">choose the colour scheme</label>
+
+                <input type="radio" id="color" name="color" value="default">
+                <label for="default">default</label>
+
+                <input type="radio" id="color" name="color" value="trad">
+                <label for="trad">traditional</label>
+
+                <input type="radio" id="color" name="color" value="random">
+                <label for="random">random</label>
+
+                <input type="radio" id="color" name="color" value="fade">
+                <label for="fade">fade</label>
+
+                <button id="">do it</button>
             </form>
         </div>
         <script src="resources/script.js"> 
