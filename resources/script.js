@@ -48,6 +48,7 @@ clear.addEventListener('click', () => {
 
 openPopUp.addEventListener('click', () => {
     popUp.classList.add('open');
+    input.focus();
 });
 
 closePopUp.addEventListener('click', function(e) {

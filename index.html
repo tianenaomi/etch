@@ -5,18 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Etch-a-Sketch</title>
         <link rel="stylesheet" href="resources/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <button id="clear">clear</button>
-        <button id="newGrid">new grid</button>
-        <div id="gridContainer">
+        <div class="buttonContainer">
+            <button id="clear">clear etch</button>
+            <button id="newGrid">custom grid</button>
+        </div> 
+        <div id="gridBorder">
+            <div id="gridContainer"></div>
+        </div>   
+        <div class="buttonContainer">
+            <div id="toCenter"></div>
         </div>
 
         <div class="popUp">
             <form class="innerPopUp" id="innerPopUp">
                 <label for="input" id="prompt">how many boxes per side</label>
                 <div id="error"></div>
-                <input type="text" name="input" id="input" min="16" max="148" value="">
+                <input type="text" name="input" id="input" min="16" max="208" value="">
                 <button id="submit">grid me</button>
             </form>
         </div>

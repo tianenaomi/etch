@@ -1,5 +1,5 @@
 /* COLOUR PALETTE
-OPTION 1
+OPTION 1 - NOT IN USE
 001B7E = navy
 0b4af9 = royal blue
 02cefc = baby blue
@@ -7,13 +7,25 @@ OPTION 1
 690759 = mauve
 ed006c = fushia
 
-OPTION 2
-012932 = black/green
-016e78 = seagreen
-02abb7 = teal
+OPTION 2 - DEFAULT
+012932 = black/green (grid)
+016e78 = seagreen (background)
+02abb7 = teal (border)
 00f3d7 = tiffany green
 9b425b = dusty pink
-fb02af = fushia
+fb02af = fushia (etch)
+
+OPTION 5 - TRADITIONAL
+red
+yellow
+light grey
+dark grey
+
+OPTION 4 - RANDOMISED
+
+
+OPTION 5 - GRADUAL
+
  */
 
 html {
@@ -25,19 +37,50 @@ html {
 *::after,
 *::before {
     box-sizing: border-box;
+    font-family: "Handjet", sans-serif;
 }
 
 body {
     background-color: #016e78;
+    display: flex;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    width: 196px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+button {
+    background-color: #02abb7;
+    color: #012932;
+    border: 4px outset #00f3d7;
+    border-radius: 4px;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+#toCenter {
+    width: 196px;
+}
+
+#gridBorder {
+    border: 8px ridge #00f3d7;
+    border-radius: 4px;
+    width: 792px;
+    margin: 0 auto;
 }
 
 #gridContainer {
     display: flex;
     flex-wrap: wrap;
-
     width: 768px;
     height: 768px;
-    margin: 0 auto;
+    margin: 4px;
 }
 
 .square {
@@ -57,7 +100,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: -1; /* how to make this go behind body element*/
 
     display: flex;
     align-items: center;
@@ -75,24 +118,30 @@ body {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    height: 260px;
+    height: 200px;
     width: 260px;
-    border-radius: 140px;
-    background-color:#012932;
+    /* border-radius: 140px; */
+    background-color:#9b425b;
     border: 5px outset #fb02af;
+    border-radius: 4px;
 }
 
-label {
-    color: #fb02af;
+label,
+input {
+    color: #012932;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 input {
-    width: 48px;
+    width: 96px;
     height: 48px;
-    border-radius: 24px;
+    border-radius: 4px;
+    background-color: #00f3d755;
+    border-color: #fb02af;
+    text-align: center;
 }
 
 #submit {
-    color:#012932;
-    background-color: #02abb7;
+    /* font-size: 18px; */
 }
