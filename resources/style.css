@@ -1,11 +1,4 @@
 /* COLOUR PALETTE
-OPTION 1 - NOT IN USE
-001B7E = navy
-0b4af9 = royal blue
-02cefc = baby blue
-3d103c = maroon
-690759 = mauve
-ed006c = fushia
 
 OPTION 2 - DEFAULT
 012932 = black/green (grid)
@@ -40,26 +33,40 @@ html {
     font-family: "Handjet", sans-serif;
 }
 
-body {
-    background-color: #016e78;
+body,
+.buttonContainer,
+#gridContainer,
+.popUp,
+.innerPopUp,
+#radioContainer {
     display: flex;
+}
+
+.buttonContainer,
+.popUp,
+.innerPopUp,
+#radioContainer {
+    justify-content: center; 
+}
+
+button, 
+#gridBorder,
+.innerPopUp,
+#gridInner,
+#colorInner,
+input {
+    border-radius: 4px;
 }
 
 .buttonContainer {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 8px;
-    width: 196px;
     margin: 0 auto;
-    /* border: 1px solid red; */
+    width: 196px;
 }
 
 button {
-    background-color: #02abb7;
-    color: #012932;
-    border: 4px outset #00f3d7;
-    border-radius: 4px;
+    border: 4px outset;
     font-size: 32px;
     font-weight: 500;
 }
@@ -69,31 +76,26 @@ button {
 }
 
 #gridBorder {
-    border: 8px ridge #00f3d7;
-    border-radius: 4px;
-    width: 792px;
+    border: 8px ridge;
     margin: 0 auto;
-    background-color: #016e78;
+    width: 792px;
 }
 
 #gridContainer {
-    display: flex;
     flex-wrap: wrap;
-    width: 768px;
     height: 768px;
     margin: 4px;
+    width: 768px;
 }
 
 .square {
-    background-color: #012932;
-    border: .5px solid #02abb7;
-    width: 48px;
-    height: 48px;
+    border: .5px solid;
     flex: auto;
+    height: 48px;
+    width: 48px;    
 }
 
-
-/* KEEP FOLLOWING AT BOTTOM */
+/* POP UP BOXES */
 
 .popUp {
     position: fixed;
@@ -102,10 +104,8 @@ button {
     bottom: 0;
     left: 0;
     z-index: -1; /* how to make this go behind body element*/
-
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .popUp.open {
@@ -114,43 +114,250 @@ button {
 }
 
 .innerPopUp {
-    display: flex;
+    border: 5px outset;
+    gap: 10px;
+}
+
+.innerPopUp,
+#radioContainer {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 200px;
     width: 260px;
-    /* border-radius: 140px; */
-    background-color: #016e78;
-    border: 5px outset #00f3d7;
-    border-radius: 4px;
+}
+
+#gridInner {
+    height: 200px;
+}
+
+#gridInner,
+#colorInner {
+    border: 5px outset;
 }
 
 label,
-input {
+input,
+#form {
     font-size: 24px;
     font-weight: 500;
 }
 
 input {
+    text-align: center;
+}
+
+#gridInput {
     width: 96px;
     height: 48px;
-    border-radius: 4px;
-    background-color: #01293299;
-    border-color: #00f3d7;
-    text-align: center;
-    color: #fb02af;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+} /*removes default number counter thing*/
+
+.closeButtons {
+    flex-direction: row;
+    gap: 6px;
 }
 
-input:focus {
+.closeButtons button {
+    width: 98px;
+}
+
+/* RADIO POPUP */
+
+input[type=radio] {
+    appearance: none;
+    border: 1px inset;
+    border-radius: 50%; 
+    height: 13px;
+    width: 13px;
+}
+
+#radioContainer {
+    width: 116px;
+    align-items: baseline;
+}
+
+.radioContainer {
+    flex-direction: row;
+}
+
+#colorInner {
+    height: 274px;
+}
+
+/* CUSTOM COLOURS */
+
+/* CHECKLIST
+body {
+    background-color: ;
+}
+
+button {
+    background-color: ;
+    border-color: ;
+    color: ;
+}
+
+#gridBorder {
+    background-color: ;
+    border-color: ;
+}
+
+.square {
+    background-color: ;
+    border-color: ;
+}
+
+.square.(colorScheme).etch {
+    background-color: ;
+}
+
+.innerPopUp {
+    background-color: ;
+    border-color: ;
+}
+
+#gridInner,
+#colorInner {
+    background-color: ;
+    border-color: ;
+}
+
+input {
+    background-color: #xxxxxx99;
+    border-color: ;
+    color: ;
+}
+
+input:focus,
+.radio:focus {
+    outline-color: ;
+}
+
+input[type=radio] {
+    background-color: #xxxxxx99;
+    border-color: #00f3d7;
+}
+
+input[type=radio]:checked {
+    background-color: ;
+}
+
+#form {
+    color: ;
+}
+*/
+
+/* blueDefault */
+
+body.blueDefault {
+    background-color: #016e78;
+}
+
+button.blueDefault{
+    background-color: #02abb7;
+    border-color: #00f3d7;
+    color: #012932;
+}
+
+#gridBorder.blueDefault {
+    background-color: #016e78;
+    border-color: #00f3d7;
+}
+
+.square.blueDefault {
+    background-color: #012932;
+    border-color: #02abb7;
+}
+
+.square.blueDefault.etch {
+    background-color: #fb02af;
+}
+
+.innerPopUp.blueDefault {
+    background-color: #016e78;
+    border-color: #00f3d7;
+}
+
+#gridInner.blueDefault,
+#colorInner.blueDefault {
+    background-color: #016e78;
+    border-color: #00f3d7;
+}
+
+input.blueDefault {
+    background-color: #01293299;
+    border-color: #00f3d7;
+    color: #fb02af;
+}
+
+input.blueDefault:focus,
+.radio.blueDefault:focus {
     outline-color: #fb02af;
 }
+
+input[type=radio].blueDefault {
+    background-color: #01293299;
+    border-color: #00f3d7;
+}
+
+input[type=radio].blueDefault:checked {
+    background-color: #fb02af;
+}
+
+#form.blueDefault {
+    color: #012932;
+}
+
+/* traditional */
+body.trad {
+    background-color: #d30505;
+}
+
+button.trad {
+    background-color: #d30505;
+    border-color: #ffe100;
+    color: #ffe100;
+}
+
+#gridBorder.trad {
+    background-color: #d30505;
+    border-color: #ffe100;
+}
+
+.square.trad {
+    background-color: #c0bdbd;
+    border-color: #5a5a5a;
+}
+
+.square.trad.etch {
+    background-color: #797979;
+}
+
+.innerPopUp.trad {
+    background-color: #d30505;
+    border-color: #ffe100;
+}
+
+#gridInner.trad,
+#colorInner.trad {
+    background-color: #d30505;
+    border-color: #ffe100;
+}
+
+input.trad {
+    background-color: #d3050599;
+    border-color: #ffe100;
+    color: #ffe100;
+}
+
+#form.blueDefault {
+    color: #ffe100;
+}
+
+/* random*/
 
  

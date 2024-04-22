@@ -23,30 +23,45 @@
         </div>
 
         <div class="popUp" id="gridPopUp">
-            <form class="innerPopUp" id="innerPopUp">
-                <label for="input" id="prompt">how many boxes per side?</label>
-                <input type="number" name="input" id="input" min="16" max="208" value="">
-                <button id="submit">let's go</button>
+            <form class="innerPopUp" id="gridInner">
+                <label for="gridInput" id="prompt">how many boxes per side?</label>
+                <input type="number" name="gridInput" id="gridInput" min="16" max="208" value="">
+
+                <div class="closeButtons">
+                    <button id="closeNewGrid">let's go</button>
+                    <button class="close">close</button> <!-- seems to inherit event listener??-->
+                </div>
             </form>
         </div>
 
         <div class ="popUp" id="colorPopUp">
-            <form class="innerPopUp">
-                <label for="form">choose the colour scheme</label>
+            <form class="innerPopUp" id="colorInner">
 
-                <input type="radio" id="color" name="color" value="default">
-                <label for="default">default</label>
+                <div id="form">choose the colour scheme</div>
 
-                <input type="radio" id="color" name="color" value="trad">
-                <label for="trad">traditional</label>
-
-                <input type="radio" id="color" name="color" value="random">
-                <label for="random">random</label>
-
-                <input type="radio" id="color" name="color" value="fade">
-                <label for="fade">fade</label>
-
-                <button id="">do it</button>
+                <div id="radioContainer">
+                    <div class="radioContainer">
+                        <input type="radio" id="default" class="radio" name="color" value="default">
+                        <label for="default">default</label>
+                    </div>
+                    <div class="radioContainer">
+                        <input type="radio" id="trad" name="color" class="radio" value="trad">
+                        <label for="trad">traditional</label>
+                    </div>
+                    <div class="radioContainer">
+                        <input type="radio" id="random" class="radio" name="color" value="random">
+                        <label for="random">random</label>
+                    </div>
+                    <div class="radioContainer">
+                        <input type="radio" id="fade" class="radio" name="color" value="fade">
+                        <label for="fade">fade</label>
+                    </div>
+                </div>
+                
+                <div class="closeButtons">
+                    <button id="closeNewColor">do it</button>
+                    <button class="close">close</button> <!-- seems to inherit event listener??-->
+                </div>
             </form>
         </div>
         <script src="resources/script.js"> 
