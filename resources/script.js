@@ -26,7 +26,6 @@ const buttons = document.querySelectorAll('button');
 let radios = document.querySelectorAll('.radio');
 
 createGrid(sideSquares);
-window.addEventListener('load', setBlueDefault());
 
 function createGrid (sideSquares){
     squares = [];
@@ -60,12 +59,13 @@ function createGrid (sideSquares){
 // }
 // END ORIGINAL FUNCTION
 
+
+clear.addEventListener('click', clearEtch);
+
 function clearEtch(){
-    clear.addEventListener('click', () => {
     squares.forEach((square) => {
         square.classList.remove('etch');
         });
-    });
 }
 
 openNewGrid.addEventListener('click', () => {
@@ -107,19 +107,21 @@ openNewColor.addEventListener('click', () => {
     colorPopUp.classList.add('open');
 });
 
-
 closeNewColor.addEventListener('click', function(e) {
     e.preventDefault(); //prevents browser from returning to line 1 and re-executing code
-    if (blueDefault.value = true || radios.value === null){
+    clearColorScheme();
+    if (blueDefault.checked == true){
         setBlueDefault();  
-    } else if (trad.value = true){
-        setTrad();
-    } 
-    clearEtch();    
+    } else if (trad.checked == true){
+        setTrad(); 
+    } else {
+        setBlueDefault();
+    }
     colorPopUp.classList.remove('open');
 });
 
 function setTrad() {
+    clearEtch();
     body.classList.add('trad');
     gridBorder.classList.add('trad');
     innerPopUp.classList.add('trad');
@@ -128,14 +130,14 @@ function setTrad() {
     input.classList.add('trad');
     squares.forEach((square) => {
         square.classList.add('trad');
-        // square.addEventListener('mouseenter', () => {
-        //     square.classList.add('etch');
-        // });
     });
     buttons.forEach((button) => {
         button.classList.add('trad');
     });
-    clearEtch();
+    radios.forEach((radio) => {
+        radio.classList.add('trad');
+    });
+    
 }
 
 function setBlueDefault(){
@@ -151,20 +153,43 @@ function setBlueDefault(){
     buttons.forEach((button) => {
         button.classList.add('blueDefault');
     });
+    radios.forEach((radio) => {
+        radio.classList.add('blueDefault');
+    });
     clearEtch();
 }
 
-function setColorScheme(){
-    if (blueDefault.value = true || radios.value === null){
+function setColorScheme(){ 
+    if (blueDefault.checked == true) {
         setBlueDefault();
-    } else if (trad.value = true){
+    } else if (trad.checked == true) {
         setTrad();
-    } 
-    // else if (random.value = true){
+    } else {
+        setBlueDefault();
+    }
+    // else if (random.checked = true){
     //     setRandom();
-    // } else (fade.value = true)
+    // } else (fade.checked = true)
     //     setFade();
-};
+}
+
+function clearColorScheme() {
+    body.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    gridBorder.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    innerPopUp.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    gridInner.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    colorInner.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    input.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    squares.forEach((square) => {
+        square.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    });
+    buttons.forEach((button) => {
+        button.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    });
+    radios.forEach((radio) => {
+        radio.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    });
+}
 
 /* PSEUDOCODE 
 

@@ -251,8 +251,10 @@ input[type=radio]:checked {
 }
 */
 
-/* blueDefault */
 
+
+
+/* blueDefault */
 body.blueDefault {
     background-color: #016e78;
 }
@@ -294,8 +296,8 @@ input.blueDefault {
     color: #fb02af;
 }
 
-input.blueDefault:focus,
-.radio.blueDefault:focus {
+input:focus.blueDefault,
+.radio:focus {
     outline-color: #fb02af;
 }
 
@@ -304,7 +306,7 @@ input[type=radio].blueDefault {
     border-color: #00f3d7;
 }
 
-input[type=radio].blueDefault:checked {
+input[type=radio]:checked.blueDefault {
     background-color: #fb02af;
 }
 
@@ -354,7 +356,21 @@ input.trad {
     color: #ffe100;
 }
 
-#form.blueDefault {
+input:focus.trad,
+.radio:focus.trad {
+    outline-color: ;
+}
+
+input[type=radio].trad {
+    background-color: #xxxxxx99;
+    border-color: #00f3d7;
+}
+
+input[type=radio]:checked.trad {
+    background-color: ;
+}
+
+#form.trad{
     color: #ffe100;
 }
 
