@@ -246,9 +246,11 @@ input[type=radio]:checked {
     background-color: ;
 }
 
-#form {
+#form,
+label {
     color: ;
 }
+
 */
 
 
@@ -310,8 +312,13 @@ input[type=radio]:checked.blueDefault {
     background-color: #fb02af;
 }
 
-#form.blueDefault {
+#form.blueDefault,
+label.blueDefault {
     color: #012932;
+    /* text-shadow: 0 0 0.5px #00f3d7, 
+        0 0 0.5px #00f3d7, 
+        0 0 0.5px #00f3d7, 
+        0 0 0.5px #00f3d7; */
 }
 
 /* traditional */
@@ -320,9 +327,9 @@ body.trad {
 }
 
 button.trad {
-    background-color: #d30505;
+    background-color: #35aef9;
     border-color: #ffe100;
-    color: #ffe100;
+    color: #efefef;
 }
 
 #gridBorder.trad {
@@ -358,22 +365,119 @@ input.trad {
 
 input:focus.trad,
 .radio:focus.trad {
-    outline-color: ;
+    outline-color: #ffe100;
 }
 
 input[type=radio].trad {
-    background-color: #xxxxxx99;
-    border-color: #00f3d7;
+    background-color: #d3050599;
+    border-color: #ffe100;
 }
 
 input[type=radio]:checked.trad {
-    background-color: ;
+    background-color: #ffe100;
 }
 
-#form.trad{
-    color: #ffe100;
+#form.trad,
+label.trad { 
+    color: #efefef;
 }
 
 /* random*/
+body.random {
+    background-color: #d9bfac;
+}
 
+button.random {
+    background-color: #eeebe5;
+    border-color: #baa390;
+    color: #424a54;
+}
+
+#gridBorder.random {
+    background-color: #d9bfac;
+    border-color: #baa390;
+}
+
+.square.random {
+    background-color: #eeebe5;
+    border-color: #baa390;
+}
+
+.square.random.etch.red {
+    background-color: #ffadad;
+}
+
+.square.random.etch.yellow {
+    background-color: #fdffb6;
+}
+
+.square.random.etch.pink {
+    background-color: #ffc6ff;
+}
+
+.square.random.etch.green {
+    background-color: #caffbf;
+}
+
+.square.random.etch.purple {
+    background-color: #a0c4ff;
+}
+
+.square.random.etch.orange {
+    background-color: #ffd6a5;
+}
+
+.square.random.etch.blue {
+    background-color: #9bf6ff;
+}
+
+.innerPopUp.random {
+    background-color: #d9bfac;
+    border-color: #baa390;
+}
+
+#gridInner.random,
+#colorInner.random {
+    background-color: #d9bfac;
+    border-color: #baa390;
+}
+
+input.random {
+    background-color: #efe7da99;
+    border-color: #baa390;
+    color: #424a54;
+}
+
+input:focus.random,
+.radio:focus.random {
+    outline-color: #9bf6ff;
+}
+
+input[type=radio].random {
+    background-color: #eeebe599;
+    border-color: #baa390;
+}
+
+input[type=radio]:checked.random {
+    background-color: #ffc6ff;
+}
+
+#form.random,
+label.random {
+    color: #424a54;
+}
  
+/* 
+717d84 - dark grey
+b3b3a8 - mid grey
+e4e4e4 - light grey
+
+
+efe7da - beige
+c1b6a3 - grey beige
+b3907a - tan
+e1daca - light grey beige
+f5f5eb - off white
+
+
+*/

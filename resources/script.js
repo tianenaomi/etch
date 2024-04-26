@@ -24,6 +24,8 @@ const gridInner = document.getElementById('gridInner');
 const colorInner = document.getElementById('colorInner');
 const buttons = document.querySelectorAll('button');
 let radios = document.querySelectorAll('.radio');
+const labels = document.querySelectorAll('label');
+const form = document.getElementById('form');
 
 createGrid(sideSquares);
 
@@ -114,56 +116,21 @@ closeNewColor.addEventListener('click', function(e) {
         setBlueDefault();  
     } else if (trad.checked == true){
         setTrad(); 
+    } else if (random.checked == true){
+        setRandom(); 
     } else {
         setBlueDefault();
     }
     colorPopUp.classList.remove('open');
 });
 
-function setTrad() {
-    clearEtch();
-    body.classList.add('trad');
-    gridBorder.classList.add('trad');
-    innerPopUp.classList.add('trad');
-    gridInner.classList.add('trad');
-    colorInner.classList.add('trad');
-    input.classList.add('trad');
-    squares.forEach((square) => {
-        square.classList.add('trad');
-    });
-    buttons.forEach((button) => {
-        button.classList.add('trad');
-    });
-    radios.forEach((radio) => {
-        radio.classList.add('trad');
-    });
-    
-}
-
-function setBlueDefault(){
-    body.classList.add('blueDefault');
-    gridBorder.classList.add('blueDefault');
-    innerPopUp.classList.add('blueDefault');
-    gridInner.classList.add('blueDefault');
-    colorInner.classList.add('blueDefault');
-    input.classList.add('blueDefault');
-    squares.forEach((square) => {
-        square.classList.add('blueDefault');
-    });
-    buttons.forEach((button) => {
-        button.classList.add('blueDefault');
-    });
-    radios.forEach((radio) => {
-        radio.classList.add('blueDefault');
-    });
-    clearEtch();
-}
-
 function setColorScheme(){ 
     if (blueDefault.checked == true) {
         setBlueDefault();
     } else if (trad.checked == true) {
         setTrad();
+    } else if (random.checked == true) {
+        setRandom();  
     } else {
         setBlueDefault();
     }
@@ -173,21 +140,98 @@ function setColorScheme(){
     //     setFade();
 }
 
+function setTrad() {
+    clearEtch();
+    body.classList.add('trad');
+    buttons.forEach((button) => {
+        button.classList.add('trad');
+    });
+    colorInner.classList.add('trad');
+    form.classList.add('trad');
+    gridBorder.classList.add('trad');
+    gridInner.classList.add('trad');
+    innerPopUp.classList.add('trad');
+    input.classList.add('trad');
+    labels.forEach((label) => {
+        label.classList.add('trad');
+    });
+    radios.forEach((radio) => {
+        radio.classList.add('trad');
+    });
+    squares.forEach((square) => {
+        square.classList.add('trad');
+    });  
+}
+
+function setBlueDefault(){
+    clearEtch();
+    body.classList.add('blueDefault');
+    buttons.forEach((button) => {
+        button.classList.add('blueDefault');
+    });
+    colorInner.classList.add('blueDefault');
+    form.classList.add('blueDefault');
+    gridBorder.classList.add('blueDefault');
+    gridInner.classList.add('blueDefault');
+    innerPopUp.classList.add('blueDefault');
+    input.classList.add('blueDefault');
+    labels.forEach((label) => {
+        label.classList.add('blueDefault');
+    });
+    radios.forEach((radio) => {
+        radio.classList.add('blueDefault');
+    });
+    squares.forEach((square) => {
+        square.classList.add('blueDefault');
+    });
+}
+
+function setRandom(){
+    clearEtch();
+    body.classList.add('random');
+    buttons.forEach((button) => {
+        button.classList.add('random');
+    });
+    colorInner.classList.add('random');
+    form.classList.add('random');
+    gridBorder.classList.add('random');
+    gridInner.classList.add('random');
+    innerPopUp.classList.add('random');
+    input.classList.add('random');
+    labels.forEach((label) => {
+        label.classList.add('random');
+    });
+    radios.forEach((radio) => {
+        radio.classList.add('random');
+    });
+    squares.forEach((square) => {
+        let color = colors[Math.floor((Math.random() * colors.length))];
+        square.classList.add('random', `${color}`);
+    });
+}
+
+const colors = ['red', 'yellow', 'pink', 'green', 'purple', 'orange', 'blue'];
+
+
 function clearColorScheme() {
     body.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    gridBorder.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    innerPopUp.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    gridInner.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    colorInner.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    input.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    squares.forEach((square) => {
-        square.classList.remove('blueDefault', 'trad', 'random', 'fade');
-    });
     buttons.forEach((button) => {
         button.classList.remove('blueDefault', 'trad', 'random', 'fade');
     });
+    colorInner.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    form.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    gridBorder.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    gridInner.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    innerPopUp.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    input.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    labels.forEach((label) => {
+        label.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    });
     radios.forEach((radio) => {
         radio.classList.remove('blueDefault', 'trad', 'random', 'fade');
+    });
+    squares.forEach((square) => {
+        square.classList.remove('blueDefault', 'trad', 'random', 'fade', 'red', 'yellow', 'pink', 'green', 'purple', 'orange', 'blue');
     });
 }
 
@@ -204,42 +248,119 @@ function clearColorScheme() {
      ETCH in remains in original colour
     3. CLEAR event listener currently set to style background colour to blueDefault
 
-// CUSTOM COLOUR EVENT LISTENER
-ADD eventlistner to closeNewColor
-PREVENT default behaviour needed?
-IF blueDefault radio selection is true THEN
-    CALL styling function
-IF trad radio selection is true THEN
-    CALL styling function
-IF random radio selection is true THEN
-    CALL styling function
-IF fade radio selection is true THEN
-    CALL styling function
-END IF
-INVOKE clear - baked here
-REMOVE class of open
 
-// STYLING FUNCTIONS
-OPTION 1 - add class
-REMOVE class assosciated with current selection
-ADD class associated with new selection
-ADD event listener for each square for mouseover effect
 
-// CLEAR BUTTON
-// current code
-clear.addEventListener('click', () => {
-    squares.forEach((square) => {
-        square.style.backgroundColor = "#012932";
-    });
-});
+// RANDOM
 
-// HOVER COLOUR EFFECT into function
-ADD event listner
-    FOR each square of squares array
-        ADD classList of hover
-END EVENT LISTENER
-
+use math.random and math.floor to select from limited colours?
+Add eventListen
 */
+
+// ATTEMPT 1 - each square given all 6 colours 
+// function setRandom(){
+//     clearEtch();
+//     body.classList.add('random');
+//     buttons.forEach((button) => {
+//         button.classList.add('random');
+//     });
+//     colorInner.classList.add('random');
+//     form.classList.add('random');
+//     gridBorder.classList.add('random');
+//     gridInner.classList.add('random');
+//     innerPopUp.classList.add('random');
+//     input.classList.add('random');
+//     labels.forEach((label) => {
+//         label.classList.add('random');
+//     });
+//     radios.forEach((radio) => {
+//         radio.classList.add('random');
+//     });
+//     squares.forEach((square) => {
+//         square.classList.add('random');
+//         square.addEventListener('mouseover', chooseRandomColor, true);
+//         });
+//     }
+
+// function chooseRandomColor(){
+//     for (let i = 0; i <= grid; i++){
+//         let ans = Math.floor((Math.random() * 6) + 1);
+//         if (ans === 1) {
+//             squares[i].classList.add('red');
+//         } else if (ans === 2) {
+//             squares[i].classList.add('yellow');
+//         } else if (ans === 3) {
+//             squares[i].classList.add('pink');
+//         } else if (ans === 4) {
+//             squares[i].classList.add('green');
+//         } else if (ans === 5) {
+//             squares[i].classList.add('purple');
+//         } else if (ans === 5) {
+//             squares[i].classList.add('orange');
+//         } else {
+//             squares[i].classList.add('blue');
+//         }
+//     }
+// }
+
+// ATTEMPT 2 - {once : true} option solves issue for colours, but creates new issue. using clearEtch doesn't reset the event listener.
+// function setRandom(){
+//     clearEtch();
+//     body.classList.add('random');
+//     buttons.forEach((button) => {
+//         button.classList.add('random');
+//     });
+//     colorInner.classList.add('random');
+//     form.classList.add('random');
+//     gridBorder.classList.add('random');
+//     gridInner.classList.add('random');
+//     innerPopUp.classList.add('random');
+//     input.classList.add('random');
+//     labels.forEach((label) => {
+//         label.classList.add('random');
+//     });
+//     radios.forEach((radio) => {
+//         radio.classList.add('random');
+//     });
+//     squares.forEach((square) => {
+//         square.classList.add('random');
+//         square.addEventListener('mouseover', () => {
+//             let ans = Math.floor((Math.random() * 6) + 1);
+//             switch(ans) {
+//                 case 1:
+//                    square.classList.add('red'); 
+//                    break;
+//                 case 2:
+//                     square.classList.add('yellow');
+//                     break;
+//                 case 3:
+//                     square.classList.add('pink');
+//                     break;
+//                 case 4:
+//                     square.classList.add('green');
+//                     break;
+//                 case 5:
+//                     square.classList.add('purple');
+//                     break;
+//                 case 6:
+//                     square.classList.add('orange');
+//                     break;
+//                 default:
+//                     square.classList.add('blue');
+//                     break;
+//             } 
+//         }, {once : true});
+//     });
+// }
+
+// ATTEMPT 3
+// function to choose random colour from array
+// colour assigned to variable
+// square.classList.add(`${variable})
+
+
+
+    
+
 
 
 
