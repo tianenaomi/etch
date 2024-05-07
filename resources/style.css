@@ -1,26 +1,3 @@
-/* COLOUR PALETTE
-
-OPTION 2 - DEFAULT
-012932 = black/green (grid)
-016e78 = seagreen (background)
-02abb7 = teal (border)
-00f3d7 = tiffany green
-9b425b = dusty pink
-fb02af = fushia (etch)
-
-OPTION 5 - TRADITIONAL
-red
-yellow
-light grey
-dark grey
-
-OPTION 4 - RANDOMISED
-
-
-OPTION 5 - GRADUAL
-
- */
-
 html {
     box-sizing: border-box;
     height: 90vh;
@@ -466,18 +443,76 @@ input[type=radio]:checked.random {
 label.random {
     color: #424a54;
 }
- 
+
+/* FADE */
+body.fade {
+    background-color: #561cc9;
+}
+
+button.fade {
+    background-color: #ff86c9;
+    border-color: #f500bd;
+    color: #001d31;
+}
+
+#gridBorder.fade {
+    background-color: #561cc9;
+    border-color: #f500bd;
+}
+
+.square.fade {
+    background-color: #001d31;
+    border-color: #00a1d5;
+}
+
+.square.fade.etch {
+    background-color: #00be67;
+}
+
+.innerPopUp.fade {
+    background-color: #561cc9;
+    border-color: #f500bd;
+}
+
+#gridInner.fade,
+#colorInner.fade {
+    background-color: #561cc9;
+    border-color: #f500bd;
+}
+
+input.fade {
+    background-color: #ff86c999;
+    border-color: #f500bd;
+    color: #2b0e66;
+}
+
+input:focus.fade,
+.radio:focus.fade {
+    outline-color: #00be67;
+}
+
+input[type=radio].fade {
+    background-color: #ff86c999;
+    border-color: #00be67;
+}
+
+input[type=radio]:checked.fade {
+    background-color: #00be67;
+}
+
+#form.fade,
+label.fade {
+    color: #001d31;
+}
+
 /* 
-717d84 - dark grey
-b3b3a8 - mid grey
-e4e4e4 - light grey
+FOR FADE
+00be67 - neon green
+00a1d5 - neon blue
+001d31 - midnight
+2b0e66 - violet
+f500bd - neon pink
+ff86c9 - light pink
 
-
-efe7da - beige
-c1b6a3 - grey beige
-b3907a - tan
-e1daca - light grey beige
-f5f5eb - off white
-
-
+561cc9 - lighter purple option instead of violet
 */

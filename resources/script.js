@@ -1,31 +1,32 @@
-const gridContainer = document.getElementById('gridContainer');
-const clear = document.getElementById('clear'); 
-const openNewGrid = document.getElementById('newGrid');
-const gridPopUp = document.getElementById('gridPopUp');
-const closeNewGrid = document.getElementById('closeNewGrid');
-let sideSquares = document.getElementById('gridInput');
-let input = document.getElementById('gridInput');
-sideSquares = 16;
-let squares = [];
-let grid;
-
-// colours
-const openNewColor = document.getElementById('newColor');
-const colorPopUp = document.getElementById('colorPopUp');
-const closeNewColor = document.getElementById('closeNewColor');
 let blueDefault = document.getElementById('default');
-let trad = document.getElementById('trad');
-let random = document.getElementById('random');
-let fade = document.getElementById('fade');
 const body = document.querySelector('body');
-const gridBorder = document.getElementById('gridBorder');
-const innerPopUp = document.querySelector('.innerPopUp');
-const gridInner = document.getElementById('gridInner');
-const colorInner = document.getElementById('colorInner');
 const buttons = document.querySelectorAll('button');
-let radios = document.querySelectorAll('.radio');
-const labels = document.querySelectorAll('label');
+const clear = document.getElementById('clear'); 
+const close = document.querySelectorAll('.close');
+const closeNewColor = document.getElementById('closeNewColor');
+const closeNewGrid = document.getElementById('closeNewGrid');
+const colors = ['red', 'yellow', 'pink', 'green', 'purple', 'orange', 'blue'];
+const colorInner = document.getElementById('colorInner');
+const colorPopUp = document.getElementById('colorPopUp');
+let fade = document.getElementById('fade');
 const form = document.getElementById('form');
+let grid;
+const gridBorder = document.getElementById('gridBorder');
+const gridContainer = document.getElementById('gridContainer');
+const gridInner = document.getElementById('gridInner');
+const gridPopUp = document.getElementById('gridPopUp');
+const innerPopUp = document.querySelector('.innerPopUp');
+let input = document.getElementById('gridInput');
+const labels = document.querySelectorAll('label');
+const openNewColor = document.getElementById('newColor');
+const openNewGrid = document.getElementById('newGrid');
+let radios = document.querySelectorAll('.radio');
+let random = document.getElementById('random');
+let sideSquares = document.getElementById('gridInput');
+let squares = [];
+let trad = document.getElementById('trad');
+
+sideSquares = 16;
 
 createGrid(sideSquares);
 
@@ -43,24 +44,6 @@ function createGrid (sideSquares){
     setColorScheme();
     clearEtch();
 }
-
-// ORIGINAL CREATEGRID FUNCTION
-// function createGrid (sideSquares){
-//     squares = [];
-//     grid = (sideSquares *= sideSquares) - 1;
-//     for (let i = 0; i <= grid; i++){
-//         squares[i] = document.createElement('div');
-//         squares[i].classList.add('square');
-//         gridContainer.appendChild(squares[i]);
-//     }
-//     squares.forEach((square) => {
-//         square.addEventListener('mouseenter', () => {
-//             square.style.backgroundColor = "#fb02af";
-//         });
-//     });
-// }
-// END ORIGINAL FUNCTION
-
 
 clear.addEventListener('click', clearEtch);
 
@@ -101,8 +84,14 @@ function setSquareSize (newValue){
     });
 }
 
-// ADD CLOSE BUTTON TO POP UP
-// 
+// CLOSE BUTTONS FOR POP UPS
+close.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault(); 
+        colorPopUp.classList.remove('open');
+        gridPopUp.classList.remove('open');
+    })
+})
 
 // CUSTOM COLOURS BELOW
 openNewColor.addEventListener('click', () => {
@@ -118,6 +107,8 @@ closeNewColor.addEventListener('click', function(e) {
         setTrad(); 
     } else if (random.checked == true){
         setRandom(); 
+    // } else if (fade.checked == true) {
+    //     setFade(); 
     } else {
         setBlueDefault();
     }
@@ -131,13 +122,11 @@ function setColorScheme(){
         setTrad();
     } else if (random.checked == true) {
         setRandom();  
+    // } else if (fade.checked == true) {
+    //     setFade(); 
     } else {
         setBlueDefault();
     }
-    // else if (random.checked = true){
-    //     setRandom();
-    // } else (fade.checked = true)
-    //     setFade();
 }
 
 function setTrad() {
@@ -210,9 +199,6 @@ function setRandom(){
     });
 }
 
-const colors = ['red', 'yellow', 'pink', 'green', 'purple', 'orange', 'blue'];
-
-
 function clearColorScheme() {
     body.classList.remove('blueDefault', 'trad', 'random', 'fade');
     buttons.forEach((button) => {
@@ -235,6 +221,65 @@ function clearColorScheme() {
     });
 }
 
+// let counter = 1;
+
+// function setFade(){
+//     clearEtch();
+//     // setOpacity();
+//     body.classList.add('fade');
+//     buttons.forEach((button) => {
+//         button.classList.add('fade');
+//     });
+//     colorInner.classList.add('fade');
+//     form.classList.add('fade');
+//     gridBorder.classList.add('fade');
+//     gridInner.classList.add('fade');
+//     innerPopUp.classList.add('fade');
+//     input.classList.add('fade');
+//     labels.forEach((label) => {
+//         label.classList.add('fade');
+//     });
+//     radios.forEach((radio) => {
+//         radio.classList.add('fade');
+//     });
+//     squares.forEach((square) => {
+//         square.classList.add('fade');
+//     });
+    
+// }
+
+
+
+// ATTEMPT 1 - this = "undefined"
+// function setOpacity(){
+//     let counter = 1;
+//     squares.forEach((square) => {
+//         square.addEventListener('mouseenter', () => {
+//             this.style.opacity = `${counter}0%`;
+//             if (counter == 10){
+//                 counter == 0;
+//             }
+//             counter + 1;
+//         });
+//     });
+// }
+
+// ATTEMPT 2 = doesn't do anything
+// function setOpacity(){
+//     squares.forEach((square) => {
+//         square.addEventListener('mouseenter', (e) => {
+//             let counter = 1;
+//             if (e.fired == true){
+//                 this.style.opacity = `${counter}0%`;
+//                 if (counter == 10){
+//                     counter == 0;
+//                 }
+//                 counter + 1;
+//             }
+//         });
+//     });
+// }
+
 /* PSEUDOCODE 
 
     - additional features
@@ -244,127 +289,41 @@ function clearColorScheme() {
 
     - problems to solve
     1. new close buttons on pop up boxes seem to have inherited event listeners? Need to understand how this works
-    2. IF you etch and then don't clear before custom colour THEN
-     ETCH in remains in original colour
+    2. solved
     3. CLEAR event listener currently set to style background colour to blueDefault
 
+// FADE
+option 1
+IF mouse over first square, THEN
+    opacity equals 10%
+ELSE IF mouse over second square, THEN
+    opacity equals 20%
+...
+IF mouse over ten squares, THEN
+    CONTINUE loop at first iteration
 
 
-// RANDOM
+option 2
+SET counter variable at 0
+IF event fired THEN
+    ADD 1 to counter
+    INCREMENT opacity to 10%
+IF event fired again THEN
+    ADD 1 to counter
+    INCREMENT opacity to 20%
+...
 
-use math.random and math.floor to select from limited colours?
-Add eventListen
+SET counter to 0 once reached 10
+
+
+option 3
+SET counter to 0
+SET opacity to 0
+IF event fired is true, THEN
+    ADD 1 to counter
+    INCREMENT opacity by 10% on "this" square
+
 */
-
-// ATTEMPT 1 - each square given all 6 colours 
-// function setRandom(){
-//     clearEtch();
-//     body.classList.add('random');
-//     buttons.forEach((button) => {
-//         button.classList.add('random');
-//     });
-//     colorInner.classList.add('random');
-//     form.classList.add('random');
-//     gridBorder.classList.add('random');
-//     gridInner.classList.add('random');
-//     innerPopUp.classList.add('random');
-//     input.classList.add('random');
-//     labels.forEach((label) => {
-//         label.classList.add('random');
-//     });
-//     radios.forEach((radio) => {
-//         radio.classList.add('random');
-//     });
-//     squares.forEach((square) => {
-//         square.classList.add('random');
-//         square.addEventListener('mouseover', chooseRandomColor, true);
-//         });
-//     }
-
-// function chooseRandomColor(){
-//     for (let i = 0; i <= grid; i++){
-//         let ans = Math.floor((Math.random() * 6) + 1);
-//         if (ans === 1) {
-//             squares[i].classList.add('red');
-//         } else if (ans === 2) {
-//             squares[i].classList.add('yellow');
-//         } else if (ans === 3) {
-//             squares[i].classList.add('pink');
-//         } else if (ans === 4) {
-//             squares[i].classList.add('green');
-//         } else if (ans === 5) {
-//             squares[i].classList.add('purple');
-//         } else if (ans === 5) {
-//             squares[i].classList.add('orange');
-//         } else {
-//             squares[i].classList.add('blue');
-//         }
-//     }
-// }
-
-// ATTEMPT 2 - {once : true} option solves issue for colours, but creates new issue. using clearEtch doesn't reset the event listener.
-// function setRandom(){
-//     clearEtch();
-//     body.classList.add('random');
-//     buttons.forEach((button) => {
-//         button.classList.add('random');
-//     });
-//     colorInner.classList.add('random');
-//     form.classList.add('random');
-//     gridBorder.classList.add('random');
-//     gridInner.classList.add('random');
-//     innerPopUp.classList.add('random');
-//     input.classList.add('random');
-//     labels.forEach((label) => {
-//         label.classList.add('random');
-//     });
-//     radios.forEach((radio) => {
-//         radio.classList.add('random');
-//     });
-//     squares.forEach((square) => {
-//         square.classList.add('random');
-//         square.addEventListener('mouseover', () => {
-//             let ans = Math.floor((Math.random() * 6) + 1);
-//             switch(ans) {
-//                 case 1:
-//                    square.classList.add('red'); 
-//                    break;
-//                 case 2:
-//                     square.classList.add('yellow');
-//                     break;
-//                 case 3:
-//                     square.classList.add('pink');
-//                     break;
-//                 case 4:
-//                     square.classList.add('green');
-//                     break;
-//                 case 5:
-//                     square.classList.add('purple');
-//                     break;
-//                 case 6:
-//                     square.classList.add('orange');
-//                     break;
-//                 default:
-//                     square.classList.add('blue');
-//                     break;
-//             } 
-//         }, {once : true});
-//     });
-// }
-
-// ATTEMPT 3
-// function to choose random colour from array
-// colour assigned to variable
-// square.classList.add(`${variable})
-
-
-
-    
-
-
-
-
-
 
 
 
